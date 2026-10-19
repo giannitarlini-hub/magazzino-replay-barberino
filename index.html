@@ -44,6 +44,25 @@ main{position:relative}
 #searchPanel,#editPanel,#productPanel,#guidePanel,#historyPanel{scroll-margin-top:16px}
 @media(max-width:650px){.welcome{padding:22px 15px}.quicknav{grid-template-columns:1fr;gap:12px;margin-top:20px}.quicknav a{min-height:112px;padding:17px}.quicknav .navicon{flex-basis:56px;height:56px;font-size:34px}.quicknav a strong{font-size:18px}.quicknav a small{font-size:13px}}
 
+
+/* REPLAY STORE LOOK: store-photo background + pink brand accents */
+body{background:#07182b url("replay-store-background.png") center top/cover fixed no-repeat;color:#10213b}
+body:before{content:"";position:fixed;inset:0;background:linear-gradient(180deg,rgba(3,10,20,.60),rgba(4,16,30,.80));z-index:-1;pointer-events:none}
+header{background:linear-gradient(100deg,rgba(3,10,20,.92),rgba(6,20,38,.60));border-bottom:3px solid #ff3e91}
+header b{color:#ff5aa5;text-shadow:0 0 18px rgba(255,62,145,.38)}
+header div{color:#ffd3e6}
+.welcome{background:linear-gradient(100deg,rgba(3,12,24,.88),rgba(5,24,44,.57));border:1px solid rgba(255,105,170,.38);backdrop-filter:blur(2px)}
+.welcome h1{color:#fff}
+.welcome .muted:first-child{color:#ff8cbd}
+.quicknav a{border-color:rgba(255,105,170,.55);box-shadow:0 12px 28px rgba(0,0,0,.28)}
+.quicknav a:nth-child(2),.quicknav a:nth-child(4){background:linear-gradient(130deg,rgba(255,255,255,.95),rgba(255,230,241,.90));color:#10213b;border-color:#ffb8d4}
+.quicknav a:nth-child(2) .navicon,.quicknav a:nth-child(4) .navicon{background:#ffe0ed;color:#e72e80;border-color:#ffb4d0}
+.quicknav a:nth-child(1),.quicknav a:nth-child(3){background:linear-gradient(130deg,rgba(4,20,39,.93),rgba(10,48,79,.86));color:#fff}
+.quicknav .navicon{border-color:rgba(255,125,180,.45)}
+button:not(.secondary):not(.danger){background:linear-gradient(135deg,#ff4f9b,#d91f72);box-shadow:0 5px 14px rgba(217,31,114,.20)}
+.panel{box-shadow:0 12px 32px rgba(0,0,0,.18)}
+@media(max-width:650px){body{background-attachment:scroll}.welcome{background:linear-gradient(100deg,rgba(3,12,24,.90),rgba(5,24,44,.74))}}
+
 </style></head><body><header><b>REPLAY</b><div>BARBERINO · MAGAZZINO</div></header><main>
 <section id="login" class="panel"><h1>Accesso riservato</h1><label>Email</label><input id="email" type="email" autocomplete="username"><label>Password</label><input id="password" type="password" autocomplete="current-password"><button id="loginButton" onclick="signIn()">Accedi</button><p id="loginMessage" class="muted"></p></section>
 <section id="app"><div class="welcome"><p class="muted" style="letter-spacing:2px;text-transform:uppercase;font-weight:800">Replay Barberino Outlet</p><h1>Cosa vuoi fare oggi?</h1><p class="muted">Scegli una delle grandi voci qui sotto per aprire direttamente la sezione che ti serve.</p><div class="quicknav"><a href="#searchPanel"><i class="navicon" aria-hidden="true">⌕</i><span><strong>Cerca prodotto</strong><small>Trova un capo nel magazzino</small></span><b class="navarrow">›</b></a><a href="#editPanel"><i class="navicon" aria-hidden="true">＋</i><span><strong>Registra capo</strong><small>Inserisci un nuovo prodotto</small></span><b class="navarrow">›</b></a><a href="#historyPanel"><i class="navicon" aria-hidden="true">▤</i><span><strong>Movimenti</strong><small>Ultimi 10 aggiornamenti</small></span><b class="navarrow">›</b></a><a href="#guidePanel"><i class="navicon" aria-hidden="true">▣</i><span><strong>Guida rapida</strong><small>Come cercare e inserire i capi</small></span><b class="navarrow">›</b></a></div></div><section id="searchPanel" class="panel"><h1>Cerca un capo</h1><div class="hint"><b>Come cercare:</b> inserisci la prima parte del codice (es. <b>M914Y</b>) e tutta la parte finale (es. <b>573B918</b>). La parte centrale può cambiare. Scegli il modello corretto tra i risultati. Il codice colore è facoltativo per restringere la ricerca.</div><label>Inizio codice *</label><input id="searchCode" placeholder="Es. M914Y"><label>Finale codice *</label><input id="searchSuffix" placeholder="Es. 573B918"><label>Codice colore (facoltativo)</label><input id="searchColor" placeholder="Es. 097"><button onclick="searchProduct()">Cerca capo</button><p id="searchMessage" class="muted"></p><div id="searchMatches" class="hidden"></div></section>
